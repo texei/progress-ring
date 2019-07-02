@@ -1,7 +1,9 @@
-# progress-ring lightning web component
+# Progress Ping lightning web component
 
 *Description*  
 An easy to use lightning web component that integrate SLDS "progress ring"  
+
+[SLDS Progress Ring documentation](https://www.lightningdesignsystem.com/components/progress-ring/)
   
 ## How to use  
 Exemple:  
