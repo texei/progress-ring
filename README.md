@@ -10,10 +10,14 @@ Exemple:
 `<c-progress-ring min="0" max="100" value="80" state="normal"></c-progress-ring>`  
 
 States:  
-Normal : ![Normal](https://github.com/texei/progress-ring/blob/master/assets/img1.png)  
-Warning : ![Warning](https://github.com/texei/progress-ring/blob/master/assets/img2.png)    
-Expired : ![Expired](https://github.com/texei/progress-ring/blob/master/assets/img3.png)    
-Complete : ![Complete](https://github.com/texei/progress-ring/blob/master/assets/img4.png)    
+Normal :  
+![Normal](https://github.com/texei/progress-ring/blob/master/assets/img1.png)  
+Warning :  
+![Warning](https://github.com/texei/progress-ring/blob/master/assets/img2.png)     
+Expired :  
+![Expired](https://github.com/texei/progress-ring/blob/master/assets/img3.png)  
+Complete :  
+![Complete](https://github.com/texei/progress-ring/blob/master/assets/img4.png)  
 
 _min_: value min (ex: 0)  
 _max_: value max (ex: 100)  
