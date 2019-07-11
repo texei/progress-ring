@@ -15,7 +15,8 @@ export default class ProgressRing extends LightningElement {
 
     // Set the corresponding value to the progress ring
     set value(currentValue) {
-       this.progress = "M 1 0 A 1 1 0 " + this.getQuotient(currentValue, this.max) + " 1 " +
+        this._value = currentValue;
+        this.progress = "M 1 0 A 1 1 0 " + this.getQuotient(currentValue, this.max) + " 1 " +
                         Math.cos(2 * Math.PI * currentValue / this.max) + " " +
                         Math.sin(2 * Math.PI * currentValue / this.max) + " L 0 0";
         this.setAttribute('d', this.progress);
