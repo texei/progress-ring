@@ -7,7 +7,6 @@ export default class ProgressRing extends LightningElement {
     @track progress; // Value of the 'd' attribute of the progress-ring
     @track ringClass; // Use to save the current progress-ring class
     @track isComplete = false; // Use to render complete svg span
-    @track saveCurrentValue;
 
     @api 
     get value() {
