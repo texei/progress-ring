@@ -7,7 +7,6 @@ export default class ProgressRing extends LightningElement {
     @track progress; // Value of the 'd' attribute of the progress-ring
     @track ringClass; // Use to save the current progress-ring class
     @track isComplete = false; // Use to render complete svg span
-    @track saveCurrentValue;
 
     @api 
     get value() {
@@ -16,7 +15,8 @@ export default class ProgressRing extends LightningElement {
 
     // Set the corresponding value to the progress ring
     set value(currentValue) {
-       this.progress = "M 1 0 A 1 1 0 " + this.getQuotien(currentValue, this.max) + " 1 " +
+        this._value = currentValue;
+        this.progress = "M 1 0 A 1 1 0 " + this.getQuotient(currentValue, this.max) + " 1 " +
                         Math.cos(2 * Math.PI * currentValue / this.max) + " " +
                         Math.sin(2 * Math.PI * currentValue / this.max) + " L 0 0";
         this.setAttribute('d', this.progress);
@@ -54,12 +54,12 @@ export default class ProgressRing extends LightningElement {
      }
 
     /**
-     * Method: GetQuotien
+     * Method: GetQuotient
      * @param value : current value of the progress ring
      * @param max  : get the max value, set up by the component
-     * Description : Get the quotien of the value / max to have the {isLong} value (a binary flag if the arc should 'take the long path' (used for > 50% fill)) 
+     * Description : Get the quotient of the value / max to have the {isLong} value (a binary flag if the arc should 'take the long path' (used for > 50% fill)) 
      */
-    getQuotien(value, max) {
+    getQuotient(value, max) {
         if (value / max >= 0.5) {
             return "1";
         }
