@@ -7,12 +7,7 @@
         </div>
             <div class="slds-progress-ring__content">
                <template if:true={isComplete}>
-                    <span class="slds-icon_container slds-icon-utility-check" title="Complete">
-                            <svg class="slds-icon" aria-hidden="true">
-                              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#check"></use>
-                            </svg>
-                            <span class="slds-assistive-text">Complete</span>
-                          </span>
+                   <lightning-icon icon-name="utility:check" size="x-small" alternative-text={state}></lightning-icon>
                </template>
         </div>
     </div>
