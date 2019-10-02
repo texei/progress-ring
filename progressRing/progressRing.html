@@ -1,14 +1,14 @@
 <template>
     <div class={ringClass}>
         <div class="slds-progress-ring__progress" role="progressbar" aria-valuemin={min} aria-valuemax={max} aria-valuenow={value}>
-        <svg viewBox="-1 -1 2 2">
-        <path class="slds-progress-ring__path" id="slds-progress-ring-path-44" d={progress}></path>
-        </svg>
+            <svg viewBox="-1 -1 2 2">
+                <path class="slds-progress-ring__path" d={progress}></path>
+            </svg>
         </div>
-            <div class="slds-progress-ring__content">
-               <template if:true={isComplete}>
-                   <lightning-icon icon-name="utility:check" size="x-small" alternative-text={state}></lightning-icon>
-               </template>
+        <div class="slds-progress-ring__content">
+            <template if:true={isComplete}>
+                <lightning-icon icon-name="utility:check" size="x-small" alternative-text={state}></lightning-icon>
+            </template>
         </div>
     </div>
 </template>

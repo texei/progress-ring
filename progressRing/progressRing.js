@@ -3,10 +3,11 @@ import { LightningElement, api, track } from 'lwc';
 export default class ProgressRing extends LightningElement {
     @api min;
     @api max;
+    @api large = false;
 
     @track progress; // Value of the 'd' attribute of the progress-ring
-    @track ringClass; // Use to save the current progress-ring class
     @track isComplete = false; // Use to render complete svg span
+    @track _state;
 
     @api 
     get value() {
@@ -28,30 +29,33 @@ export default class ProgressRing extends LightningElement {
     }
 
     /**
-     * @param currentState : get the current state of the component (warning, complete, active ....) and apply the css style to the component
+     * @param currentState : get the current state of the component (warning, complete, active ....)
+     * CSS Styling is done in ringClass getter to handle both state and large properties
      */
     set state(currentState) {
-        switch (currentState.toUpperCase()) {
-            case 'WARNING':
-                this.ringClass = 'slds-progress-ring slds-progress-ring_warning';
-                break;
-            case 'EXPIRED':
-                this.ringClass = 'slds-progress-ring slds-progress-ring_expired';
-                break;
-            case 'ACTIVE':
-                this.ringClass = 'slds-progress-ring slds-progress-ring_active-step';
-                break;
-            case 'COMPLETE':
-                this.ringClass = 'slds-progress-ring slds-progress-ring_complete';
-                this.isComplete = true;
-                break;
-            case 'NORMAL':
-                this.ringClass = 'slds-progress-ring';
-                break;
-            default:
-            this.ringClass = 'slds-progress-ring';
+        if (currentState.toUpperCase() === 'COMPLETE') {
+            this.isComplete = true;     
         }
+        this._state = currentState;
      }
+
+    get ringClass() {
+        let ringClass = (this.large === true) ? 'slds-progress-ring slds-progress-ring_large' : 'slds-progress-ring';
+        switch (this._state.toUpperCase()) {
+            case 'WARNING':
+                return ringClass + ' slds-progress-ring_warning';
+            case 'EXPIRED':
+                return ringClass + ' slds-progress-ring_expired';
+            case 'ACTIVE':
+                return ringClass + ' slds-progress-ring_active-step';
+            case 'COMPLETE':
+                return ringClass + ' slds-progress-ring_complete';
+            case 'NORMAL':
+                return ringClass;
+            default:
+                return ringClass;
+        }
+    }
 
     /**
      * Method: GetQuotient
